@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test js</title>
+</head>
+<body>
+    <form action="but.html" method="POST" onformchange="return validate()" name="vform">
+        <div>
+            <label for="username">username </label>
+            <input type="text" name="username" id="username"  placeholder="votre nom">
+            <span id="name_error"></span>
+        </div>
+            <div>
+                <label for="email">email </label>
+                <input type="email" name="email" id="email"  placeholder="votre adrresse mail">
+                <span id="mail_error"></span>
+            </div>
+                <div>
+                    <label for="numero">numero </label>
+                    <input type="tel" name="numero" id="numero"  placeholder="votre numero">
+                    <span id="numero_error"></span>
+                </div>
+                
+                    <div>
+                        <label for="password">password </label>
+                        <input type="password" name="password" id="password"  placeholder="votre mot de pass">
+                        <span id="pass_error"></span>
+                    </div>
+                        <div>
+                            <label for="confirm">Confirmer mot de passe </label>
+                            <input type="password" name="confirm" id="confirm"  placeholder="confirmez votre mot de passe">
+                            <span id="confirm_error"></span>
+                        </div>
+                            <div>
+                                <label for="submit"> </label>
+                                <input type="submit" name="submit" id="submit"  value="submit">
+                                <span></span>
+                            </div>
+                                    
+    </form>
+</body>
+
+<script>
+    //input text objects
+    var username = document.forms["vform"]["username"];
+    var email = document.forms["vform"]["email"];
+    var phone = document.forms["vform"]["number"];
+    var password = document.forms["vform"]["password"];
+    var confirm = document.forms["vform"]["confirm"];
+    // error display objects
+    var name_error = document.getElementById("name_error");
+    var mail_error = document.getElementById("mail_error");
+    var numero_error = document.getElementById("numero_error");
+    var pass_error = document.getElementById("confirm_error");
+    var confirm_error = document.getElementById("confirm_error");
+
+    // setting all events listeners
+    username.addEventListener("blur", nameVerify, true);
+    email.addEventListener("blur", emailVerify, true);
+    password.addEventListener("blur", passwordVerify, true);
+
+    // validation function
+    function Validate(){
+        //username validation
+        if (username.value==""){
+            username.style.border = "1px solid red";
+            name_error.textContent= "Votre nom est requis";
+            username.focus();
+            return false;
+        }
+        //email validation
+        if (email.value==""){
+            email.style.border = "1px solid red";
+            mail_error.textContent= "Votre nom est requis";
+            uemail.focus();
+            return false;
+        }
+        //username validation
+        if (password.value==""){
+            password.style.border = "1px solid red";
+            pass_error.textContent= "Votre nom est requis";
+            password.focus();
+            return false;
+        }
+    }
+
+    //event handler functions
+    function nameVerify(){
+        if (username.value != ""){
+            username.style.border = "1px solid green";
+            name_error.innerHTML = "";
+            return true;
+            
+        }
+    }
+    function emailVerify(){
+        if (email.value != ""){
+            email.style.border = "1px solid green";
+            mail_error.innerHTML = "";
+            return true;
+            
+        }
+    }
+    function passwordVerify(){ 
+        if (password.value != ""){
+            password.style.border = "1px solid green";
+            pass _error.innerHTML = "";
+            return true;
+            
+        }
+    }
+
+
+</script>
+
+
+</html>
